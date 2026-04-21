@@ -26,8 +26,5 @@ app.get('/api/images', (req, res) => {
     res.json(files.filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f)).map(f => `/uploads/${f}`));
   });
 });
-// 启动服务
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`服务已启动：http://localhost:${PORT}`);
-});
+// 导出Vercel所需的处理函数
+module.exports = app;
